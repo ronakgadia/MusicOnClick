@@ -15,6 +15,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         StackPane stackPane = new StackPane();
+        
         stackPane.getChildren().add(new Button());
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(stackPane, 300, 275));
