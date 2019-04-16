@@ -1,5 +1,6 @@
-public class Main {
-    public static void main(String[] args) {
+import Screen.login.LoginScreen;
+import data.DatabaseManager;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-    }
-}
+
