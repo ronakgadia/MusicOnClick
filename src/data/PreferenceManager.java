@@ -5,19 +5,15 @@ import java.util.prefs.Preferences;
 public class PreferenceManager {
     private Preferences preferences = Preferences.userNodeForPackage(this.getClass());
 
-    void loginUser(String username,String password) {
-        preferences.put("username",username);
-        preferences.put("password",password);
+    public void loginUser() {
         preferences.putBoolean("isLoggedIn",true);
     }
 
-    void logoutUser() {
-        preferences.put("username","");
-        preferences.put("password","");
+    public void logoutUser() {
         preferences.getBoolean("isLoggedIn",false);
     }
 
-    boolean isUserLoggedIn() {
+    public boolean isUserLoggedIn() {
         return preferences.getBoolean("isLoggedIn",true);
     }
 }
