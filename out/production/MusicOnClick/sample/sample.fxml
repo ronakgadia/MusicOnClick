@@ -9,9 +9,7 @@
 
 <?import java.net.URL?>
 <Pane accessibleRole="BUTTON" styleClass="anchor" blendMode="DARKEN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <stylesheets>
-      <URL value="@application.css" />
-   </stylesheets>
+
    <children>
       <Button fx:id="btn" layoutX="59.0" layoutY="140.0" mnemonicParsing="false" onAction="#message" text="click" textAlignment="CENTER" textFill="#4e1fdb">
          <font>
@@ -24,3 +22,4 @@
       <InnerShadow color="#d7d91a" />
    </effect>
 </Pane>
+
