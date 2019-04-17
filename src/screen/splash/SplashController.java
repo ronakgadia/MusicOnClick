@@ -1,4 +1,4 @@
-package screen.splash;
+package Screen.splash;
 
 public class SplashController {
 }
