@@ -1,6 +1,8 @@
 *.iml
-.idea
+.idea/
+.idea\
 .idea/workspace.xml
 .idea\workspace.xml
-.idea/workspace.xml___jb_tmp___
 .idea/ant.xml
+out/*
+out\*
