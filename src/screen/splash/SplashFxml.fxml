@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.splash.SplashController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.splash.SplashController">
    <children>
-      <StackPane layoutX="7.0" layoutY="7.0" prefHeight="380.0" prefWidth="581.0">
-         <children>
-            <ImageView fitHeight="200.0" fitWidth="345.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="388.0" fitWidth="584.0" pickOnBounds="true">
-               <image>
-                  <Image url="@../../images/background.jpg" />
-               </image>
-            </ImageView>
-            <TextField alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="441.0" text="Music On Click">
-               <font>
-                  <Font name="Georgia Bold" size="24.0" />
-               </font>
-            </TextField>
-         </children>
-      </StackPane>
+      <Label layoutX="327.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="372.0" text="Music  On Click" textAlignment="CENTER" textFill="#70d6fa">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="52.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="207.0" fitWidth="242.0" layoutX="389.0" layoutY="204.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/logo4.jpg" />
+         </image>
+         <effect>
+            <Lighting bumpInput="$null">
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </ImageView>
    </children>
+   <cursor>
+      <Cursor fx:constant="SW_RESIZE" />
+   </cursor>
 </AnchorPane>
