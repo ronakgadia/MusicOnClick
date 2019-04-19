@@ -34,7 +34,7 @@ public class PreferenceManager {
         return preferences.get("token", null);
     }
 
-    void setToken(String tokenString) {
+    public void setToken(String tokenString) {
         System.out.println("Token in preferences:" + tokenString);
         preferences.put("token", tokenString);
     }
