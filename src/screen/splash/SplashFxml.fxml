@@ -18,13 +18,6 @@
          <image>
             <Image url="@../../images/logo4.jpg" />
          </image>
-         <effect>
-            <Lighting bumpInput="$null">
-               <light>
-                  <Light.Distant />
-               </light>
-            </Lighting>
-         </effect>
       </ImageView>
    </children>
    <cursor>
