@@ -3,17 +3,40 @@ package data;
 import java.util.prefs.Preferences;
 
 public class PreferenceManager {
-    private Preferences preferences = Preferences.userNodeForPackage(this.getClass());
+    private static PreferenceManager instance = null;
+    private Preferences preferences;
+
+    private PreferenceManager() {
+        preferences = Preferences.userNodeForPackage(this.getClass());
+        System.out.println("In preference manager constructor");
+    }
+
+    public static PreferenceManager getInstance() {
+        if (instance == null) {
+            instance = new PreferenceManager();
+        }
+        return instance;
+    }
 
     public void loginUser() {
-        preferences.putBoolean("isLoggedIn",true);
+        preferences.putBoolean("isLoggedIn", true);
     }
 
     public void logoutUser() {
-        preferences.getBoolean("isLoggedIn",false);
+        preferences.putBoolean("isLoggedIn", false);
     }
 
     public boolean isUserLoggedIn() {
-        return preferences.getBoolean("isLoggedIn",true);
+        return preferences.getBoolean("isLoggedIn", false);
     }
+
+    public String getToken() {
+        return preferences.get("token", null);
+    }
+
+    void setToken(String tokenString) {
+        System.out.println("Token in preferences:" + tokenString);
+        preferences.put("token", tokenString);
+    }
+
 }
