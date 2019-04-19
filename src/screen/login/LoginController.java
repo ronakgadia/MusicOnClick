@@ -23,6 +23,7 @@ public class LoginController {
         password = passwordText.getText();
         PreferenceManager preferenceManager = PreferenceManager.getInstance();
         preferenceManager.loginUser();
+//        APIDataManager.requestToken();
     }
 
     public void goToSignup() {
