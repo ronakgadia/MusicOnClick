@@ -1,4 +1,4 @@
-package Screen.login;
+package screen.login;
 
 import data.PreferenceManager;
 import javafx.fxml.FXML;
@@ -21,7 +21,7 @@ public class LoginController {
         String username, password;
         username = usernameText.getText();
         password = passwordText.getText();
-        PreferenceManager preferenceManager = new PreferenceManager();
+        PreferenceManager preferenceManager = PreferenceManager.getInstance();
         preferenceManager.loginUser();
     }
 
