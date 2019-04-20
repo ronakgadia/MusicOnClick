@@ -1,8 +1,7 @@
 package data;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import data.dto.Playlist;
+import data.dto.Track;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -11,6 +10,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import utils.SecretsManager;
@@ -78,19 +78,48 @@ public class APIDataManager {
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(responseStr);
             jsonObject = (JSONObject) jsonObject.get("playlists");
-            String jsonArray = jsonObject.get("items").toString();
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            List<Playlist> playlists = objectMapper.readValue(jsonArray, objectMapper.getTypeFactory().constructCollectionType(
-                    List.class, Playlist.class));
-            return playlists;
+            JSONArray jsonArray = (JSONArray) jsonObject.get("items");
+            ArrayList<JSONObject> jsonObjectList = new ArrayList<>();
+            for (Object o : jsonArray) {
+                jsonObjectList.add((JSONObject) o);
+            }
+            return convertJSONPlaylistToObject(jsonObjectList);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
+    private List<Playlist> convertJSONPlaylistToObject(ArrayList<JSONObject> jsonObjectList) {
+        ArrayList<Playlist> playlists = new ArrayList<>();
+        for (JSONObject jsonObject : jsonObjectList) {
+            Playlist playlist = new Playlist();
+            playlist.href = (String) jsonObject.get("href");
+            playlist.id = (String) jsonObject.get("id");
+            playlist.name = (String) jsonObject.get("name");
+            playlist.tracksUrl = (String) ((JSONObject) jsonObject.get("tracks")).get("href");
+            playlist.type = (String) jsonObject.get("type");
+            playlist.uri = (String) jsonObject.get("uri");
+            playlists.add(playlist);
+        }
+        return playlists;
+    }
 
+    private ArrayList<Track> convertJSONTracksToObject(ArrayList<JSONObject> jsonObjectList) {
+        ArrayList<Track> tracks = new ArrayList<>();
+        for (JSONObject jsonObject : jsonObjectList) {
+            Track track = new Track();
+            track.duration_ms = (int) jsonObject.get("duration_ms");
+            track.href = (String) jsonObject.get("href");
+            track.name = (String) jsonObject.get("name");
+            track.popularity = (int) jsonObject.get("popularity");
+            track.preview_url = (String) jsonObject.get("preview_url");
+            track.type = (String) jsonObject.get("type");
+            track.uri = (String) jsonObject.get("uri");
+            tracks.add(track);
+        }
+        return tracks;
+    }
 }
 
 

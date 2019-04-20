@@ -1,4 +1,4 @@
-import screen.splash.SplashController;
+import screen.splash.SplashScreen;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import utils.Router;
@@ -12,7 +12,7 @@ public class Main extends Application {
         Router.when("login", "screen/login/LoginFxml.fxml");
         Router.when("signup", "screen/signup/SignupFxml.fxml");
         Router.goTo("splash");
-        SplashController splashController = new SplashController();
+        SplashScreen splashScreen = new SplashScreen();
     }
 
     public static void main(String[] args) {

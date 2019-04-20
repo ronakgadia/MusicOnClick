@@ -34,9 +34,8 @@ public class SignupController {
         password = passwordText.getText();
         confirmPassword = confirmPasswordText.getText();
         if (password.equals(confirmPassword)) {
-            boolean result = databaseManager.registerUser(username,email,password);
+            boolean result = databaseManager.registerUser(username, email, password);
             preferenceManager.loginUser();
-
         }
     }
 

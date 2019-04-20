@@ -1,15 +1,17 @@
 package data.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.util.ArrayList;
 import java.util.List;
 
+
 public class Playlist {
-    boolean collaborative;
-    String href;
-    String id;
-    String name;
-    boolean _public;
-    String snapshot_id;
-    List<Track> tracks;
-    String type;
-    String uri;
+    public String href;
+    public String id;
+    public String images;
+    public String name;
+    public String tracksUrl;
+    public String type;
+    public String uri;
 }
