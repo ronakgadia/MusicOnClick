@@ -27,7 +27,12 @@ public class LoginController {
         APIDataManager apiDataManager = new APIDataManager();
         preferenceManager.loginUser();
         preferenceManager.setToken(apiDataManager.requestToken());
-        Home home = new Home();
+//        Home home = new Home();
+        try {
+            Router.goTo("homepage");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void goToSignup() {

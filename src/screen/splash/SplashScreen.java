@@ -14,11 +14,14 @@ public class SplashScreen {
             e.printStackTrace();
         }
         PreferenceManager preferenceManager = PreferenceManager.getInstance();
-//        preferenceManager.logoutUser();
+        preferenceManager.logoutUser();
         if (preferenceManager.isUserLoggedIn()) {
             System.out.println("User is logged in:"+preferenceManager.getToken());
-            Home home = new Home();
-//               Router.goTo("home");
+            try {
+                Router.goTo("homepage");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("User is not logged in");
             try {

@@ -8,5 +8,14 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="io.github.typhon0:AnimateFX:1.2.1" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.httpcomponents:httpclient:4.5.8" level="project" />
+    <orderEntry type="library" exported="" name="com.google.code.gson:gson:2.8.5" level="project" />
+    <orderEntry type="library" exported="" name="mysql:mysql-connector-java:5.1.40" level="project" />
+    <orderEntry type="library" exported="" name="com.fasterxml.jackson.core:jackson-databind:2.9.6" level="project" />
+    <orderEntry type="library" exported="" name="com.googlecode.json-simple:json-simple:1.1.1" level="project" />
+    <orderEntry type="library" exported="" name="de.jensd:fontawesomefx:8.2" level="application" />
+    <orderEntry type="library" exported="" name="com.jfoenix:jfoenix:8.0.8" level="application" />
+    <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
+    <orderEntry type="library" name="jfoenix-8.0.81" level="project" />
   </component>
 </module>

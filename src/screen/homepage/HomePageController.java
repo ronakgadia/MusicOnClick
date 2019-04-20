@@ -1,7 +1,6 @@
 package screen.homepage;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
@@ -16,7 +15,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomePageController implements Initializable {
-    private Duration duration;
     @FXML
     public Slider timeSlider;
 
@@ -39,7 +37,6 @@ public class HomePageController implements Initializable {
 
     private MediaPlayer mp;
 
-    //mp.setAutoPlay(true);
     public HomePageController() {
         URL mediaUrl = getClass().getResource("../../images/ashqui.mp3");
         String mediaStringUrl = mediaUrl.toExternalForm();
