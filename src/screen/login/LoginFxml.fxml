@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="IMAGE_VIEW" pickOnBounds="false" prefHeight="400.0" prefWidth="600.0" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screen.login.LoginController">
+<AnchorPane accessibleRole="IMAGE_VIEW" pickOnBounds="false" prefHeight="400.0" prefWidth="600.0" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.login.LoginController">
    <children>
       <HBox alignment="CENTER" layoutX="87.0" layoutY="24.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.topAnchor="24.0">
          <children>

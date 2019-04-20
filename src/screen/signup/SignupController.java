@@ -1,5 +1,6 @@
-package Screen.signup;
+package screen.signup;
 
+import data.DatabaseManager;
 import data.PreferenceManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -23,18 +24,17 @@ public class SignupController {
     @FXML
     private PasswordField confirmPasswordText;
 
+    private DatabaseManager databaseManager = DatabaseManager.getInstance();
+    private PreferenceManager preferenceManager = PreferenceManager.getInstance();
+
     public void signupUser(MouseEvent event) {
         String username, email, password, confirmPassword;
         username = usernameText.getText();
         email = emailText.getText();
         password = passwordText.getText();
         confirmPassword = confirmPasswordText.getText();
-
-        if (password != confirmPassword) {
-
-        }
-        else {
-            PreferenceManager preferenceManager = new PreferenceManager();
+        if (password.equals(confirmPassword)) {
+            boolean result = databaseManager.registerUser(username, email, password);
             preferenceManager.loginUser();
         }
     }

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="IMAGE_VIEW" pickOnBounds="false" prefHeight="600.0" prefWidth="1000.0" stylesheets="@signupStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screen.signup.SignupController">
+<AnchorPane accessibleRole="IMAGE_VIEW" pickOnBounds="false" prefHeight="600.0" prefWidth="1000.0" stylesheets="@signupStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.signup.SignupController">
     <children>
         <HBox alignment="CENTER" layoutX="5.0" layoutY="14.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.topAnchor="14.0">
             <children>
@@ -33,7 +33,7 @@
                                 <Font size="13.0" />
                             </font>
                         </TextField>
-                  <TextField fx:id="usernameText" promptText="Email" style="-fx-background-radius: 12;">
+                  <TextField fx:id="emailText" promptText="Email" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -49,7 +49,7 @@
                                 <Insets left="20.0" right="20.0" top="20.0" />
                             </VBox.margin>
                         </PasswordField>
-                  <PasswordField fx:id="passwordText" promptText="Confirm Password" style="-fx-background-radius: 13;">
+                  <PasswordField fx:id="confirmPasswordText" promptText="Confirm Password" style="-fx-background-radius: 13;">
                      <font>
                         <Font size="13.0" />
                      </font>
