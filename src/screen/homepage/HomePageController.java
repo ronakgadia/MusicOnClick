@@ -1,5 +1,8 @@
 package screen.homepage;
 
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -8,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -16,6 +20,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomePageController implements Initializable {
+    @FXML
+    public JFXHamburger hamburger;
+    @FXML
+    public JFXDrawer drawer;
+    @FXML
+    public VBox drawer_pane;
+    @FXML
     private Duration duration;
     @FXML
     public Slider timeSlider;
@@ -23,7 +34,7 @@ public class HomePageController implements Initializable {
     @FXML
     public FontAwesomeIcon backward;
 
-    @FXML
+   @FXML
     public FontAwesomeIcon playtime;
 
     @FXML
@@ -54,6 +65,7 @@ public class HomePageController implements Initializable {
             mp.play();
             System.out.println("Clicked to play");
         } else {
+            FontAwesomeIcon pause=new FontAwesomeIcon();
             mp.pause();
             System.out.println("Clicked to pause");
         }
@@ -110,5 +122,34 @@ public class HomePageController implements Initializable {
                 }
             }
         });
+        drawer.setSidePane(drawer_pane);
+        HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
+        transition.setRate(-1);
+        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+            transition.setRate(transition.getRate() * -1);
+            transition.play();
+
+            if (drawer.isOpened()) {
+                drawer.close();
+            } else {
+                drawer.open();
+            }
+        });
+
+
     }
-}
+
+    /*public void expandicon(){
+        HamburgerBackArrowBasicTransition burger2=new HamburgerBackArrowBasicTransition(hamburger);
+        burger2.setRate(-1);
+        burger2.setRate(burger2.getRate()*-1);
+        burger2.play();
+        if(drawer.isClosed()){
+            drawer.open();
+        }
+        else{
+            drawer.close();
+        }*/
+
+    }
+
