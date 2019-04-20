@@ -54,7 +54,7 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Hyperlink text="SignUp" />
+                  <Hyperlink onMouseClicked="#goToSignup" text="SignUp" />
                </children>
             </VBox>
          </children>

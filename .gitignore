@@ -6,3 +6,4 @@
 .idea/ant.xml
 out/*
 out\*
+.idea/misc.xml

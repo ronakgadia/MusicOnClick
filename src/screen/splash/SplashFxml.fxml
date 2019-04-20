@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.splash.SplashController">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Screen.splash.SplashController">
    <children>
-      <Label layoutX="327.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="372.0" text="Music  On Click" textAlignment="CENTER" textFill="#70d6fa">
+      <Label layoutX="327.0" layoutY="31.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="372.0" text="Music On Click" textAlignment="CENTER" textFill="#70d6fa">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="52.0" />
          </font>

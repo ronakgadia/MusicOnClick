@@ -1,19 +1,19 @@
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utils.Router;
 
 public class Main extends Application {
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("screen/splash/SplashFxml.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1500, 1200));
-        primaryStage.show();
+        Router.bind(this, primaryStage, "MusicOnClick", 1000, 600);
+        Router.when("splash", "Screen/splash/SplashFxml.fxml");
+        Router.when("login", "Screen/login/LoginFxml.fxml");
+        Router.when("signup", "Screen/signup/SignupFxml.fxml");
+        Router.goTo("splash");
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
