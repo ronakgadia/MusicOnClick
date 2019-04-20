@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,19 +28,22 @@
                         </Slider>
                         <HBox alignment="CENTER">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="300.0" />
+                              <HBox prefHeight="100.0" prefWidth="300.0">
+                                 <children>
+                                    <Label text="Label" />
+                                 </children></HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
                                  <children>
-                                    <FontAwesomeIcon fx:id="backward" fill="#0d097c" glyphName="BACKWARD" size="3em" strokeType="OUTSIDE" strokeWidth="0.0">
+                                    <FontAwesomeIcon fx:id="backward" fill="#0d097c" glyphName="BACKWARD" onMouseClicked="#slow" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                        <HBox.margin>
                                           <Insets right="40.0" />
                                        </HBox.margin></FontAwesomeIcon>
-                                    <FontAwesomeIcon fx:id="playtime" glyphName="PLAY" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                    <FontAwesomeIcon fx:id="playtime" glyphName="PLAY" onMouseClicked="#playSong" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                        <HBox.margin>
                                           <Insets right="40.0" />
                                        </HBox.margin>
                                     </FontAwesomeIcon>
-                                    <FontAwesomeIcon fx:id="forward" glyphName="FORWARD" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                    <FontAwesomeIcon fx:id="forward" glyphName="FORWARD" onMouseClicked="#fast" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
