@@ -1,0 +1,12 @@
+.DS_Store
+build/
+private/
+gradle/
+.nb-gradle/
+.gradle/
+.nb-gradle*
+.idea/
+/bin/
+.classpath
+.project
+.settings/org.eclipse.buildship.core.prefs
