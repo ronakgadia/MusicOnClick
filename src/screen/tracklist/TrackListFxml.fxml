@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: ..\..\images\back.jpg;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.tracklist.TrackListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@TrackList.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.tracklist.TrackListController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0">
          <children>
@@ -15,15 +19,88 @@
                <children>
                   <HBox prefHeight="150.0" prefWidth="250.0">
                      <children>
-                        <JFXHamburger prefHeight="150.0" prefWidth="257.0" />
+                         <FontAwesomeIcon glyphName="ARROW_LEFT" size="4em" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="50.0" right="10.0" top="50.0" />
+                           </HBox.margin></FontAwesomeIcon>
                      </children></HBox>
-                  <ImageView fitHeight="150.0" fitWidth="500.0" pickOnBounds="true">
+                  <ImageView fitHeight="150.0" fitWidth="450.0" pickOnBounds="true">
                      <image>
                         <Image url="@../../images/music_diak.jpg" />
                      </image></ImageView>
                   <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="250.0" />
                </children>
             </HBox>
+            <ListView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" />
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0">
+
+
+
+
+                <children>
+                    <VBox alignment="CENTER" layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: blue;">
+                        <children>
+                            <JFXSlider fx:id="timeSlider" prefHeight="14.0" prefWidth="242.0" style="-fx-background-color: blue;">
+                                <padding>
+                                    <Insets top="10.0" />
+                                </padding>
+                                <effect>
+                                    <ColorAdjust />
+                                </effect>
+                            </JFXSlider>
+                            <HBox alignment="CENTER">
+                                <children>
+                                    <HBox prefHeight="100.0" prefWidth="300.0" />
+                                    <HBox alignment="CENTER" prefHeight="48.0" prefWidth="400.0">
+                                        <children>
+                                            <FontAwesomeIcon fx:id="backward" glyphName="BACKWARD" onMouseClicked="#slow" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                                <HBox.margin>
+                                                    <Insets right="40.0" />
+                                                </HBox.margin></FontAwesomeIcon>
+                                            <FontAwesomeIcon fx:id="playtime" glyphName="PLAY" onMouseClicked="#playSong" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                                <HBox.margin>
+                                                    <Insets right="40.0" />
+                                                </HBox.margin>
+                                            </FontAwesomeIcon>
+                                            <FontAwesomeIcon fx:id="forward" glyphName="FORWARD" onMouseClicked="#fast" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                                <HBox.margin>
+                                                    <Insets />
+                                                </HBox.margin>
+                                            </FontAwesomeIcon>
+                                        </children>
+                                        <padding>
+                                            <Insets top="1.0" />
+                                        </padding>
+                                        <HBox.margin>
+                                            <Insets bottom="30.0" />
+                                        </HBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefWidth="300.0">
+                                        <HBox.margin>
+                                            <Insets bottom="30.0" />
+                                        </HBox.margin>
+                                        <children>
+                                            <FontAwesomeIcon fx:id="volume" glyphName="VOLUME_UP" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                                <HBox.margin>
+                                                    <Insets right="20.0" />
+                                                </HBox.margin>
+                                            </FontAwesomeIcon>
+                                            <JFXSlider fx:id="volumeSlider" />
+                                        </children>
+                                    </HBox>
+                                </children>
+                                <VBox.margin>
+                                    <Insets top="10.0" />
+                                </VBox.margin>
+                            </HBox>
+                        </children>
+                    </VBox>
+                </children>
+
+
+
+
+            </AnchorPane>
          </children>
       </VBox>
    </children>
