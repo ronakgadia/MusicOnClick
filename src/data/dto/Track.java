@@ -10,7 +10,7 @@ public class Track {
     public ArrayList<String> artists;
     public long duration_ms;
     public String href;
-    public int id;
+    public String id;
     public String name;
     public String preview_url;
     public String type;
@@ -26,7 +26,7 @@ public class Track {
         this.artists = getTrackArtist((JSONArray) jsonObject.get("artists"));
         this.duration_ms = (long) jsonObject.get("duration_ms");
         this.href = (String) jsonObject.get("href");
-        this.id = (int) jsonObject.get("id");
+        this.id = (String) jsonObject.get("id");
         this.name = (String) jsonObject.get("name");
         this.preview_url = (String) jsonObject.get("preview_url");
         this.type = (String) jsonObject.get("type");

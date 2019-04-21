@@ -16,7 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-import screen.widgets.MusicTrackCellFactory;
+import screen.widgets.MusicTrackWidget.MusicTrackCellFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -96,7 +96,7 @@ public class TrackListController implements Initializable {
         ArrayList<Playlist> playlists = apiDataManager.getFeaturedPlaylist();
         List<Track> myList = new ArrayList<Track>();
 
-        ArrayList<Track> tracks = apiDataManager.getTracksFromAPlaylist(playlists.get(0));
+        ArrayList<Track> tracks = apiDataManager.getTracksFromAPlaylist(playlists.get(0).id);
         for (Track track : tracks) {
             if (track.preview_url != null)
                 myList.add(track);

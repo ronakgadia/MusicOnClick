@@ -13,13 +13,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXDrawer?>
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.homepage.HomePageController">
    <children>
       <SplitPane dividerPositions="0.2" layoutX="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="600.0" prefWidth="1000.0">
          <items>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1000.0" stylesheets="@HomePage.css">
                <children>
-                  <!--<JFXDrawer fx:id="drawer" defaultDrawerSize="1000.0" layoutY="90.0" prefHeight="413.0" prefWidth="186.0">
+                  <JFXDrawer fx:id="drawer" defaultDrawerSize="1000.0" layoutY="90.0" prefHeight="413.0" prefWidth="186.0">
                      <children>
                         <VBox fx:id="drawer_pane" prefHeight="440.0" prefWidth="186.0" style="-fx-background-color: #012B72;">
                            <children>
@@ -41,7 +42,7 @@
                                  </font></JFXButton>
                            </children>
                         </VBox>
-                     </children></JFXDrawer>-->
+                     </children></JFXDrawer>
                   <JFXHamburger fx:id="hamburger" prefHeight="89.0" prefWidth="186.0" style="-fx-border-color: #FFFFFF; -fx-background-color: #012B72;" />
                   <SplitPane dividerPositions="0.25" layoutX="184.0" layoutY="2.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="809.0">
                      <items>

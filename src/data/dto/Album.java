@@ -10,7 +10,7 @@ public class Album {
     public ArrayList<String> artists;
     public String href;
     public String image;
-    public int id;
+    public String id;
     public String name;
     public String release_date;
     public String type;
@@ -20,7 +20,7 @@ public class Album {
         this.image = getAlbumImage((JSONArray) jsonObject.get("images"));
         this.album_type = (String) jsonObject.get("album_type");
         this.href = (String) jsonObject.get("href");
-        this.id = (int) jsonObject.get("id");
+        this.id = (String) jsonObject.get("id");
         this.name = (String) jsonObject.get("name");
         this.release_date = (String) jsonObject.get("release_date");
         this.type = (String) jsonObject.get("type");
