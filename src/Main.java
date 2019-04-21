@@ -13,6 +13,8 @@ public class Main extends Application {
         Router.when("signup", "screen/signup/SignupFxml.fxml");
         Router.when("homepage", "screen/homepage/HomePageFxml.fxml");
         Router.goTo("splash");
+        Router.when("homepage","screen/homepage/HomePageFxml.fxml" );
+        Router.goTo("homepage");
         SplashScreen splashScreen = new SplashScreen();
     }
 

@@ -44,7 +44,7 @@ public class HomePageController implements Initializable {
     @FXML
     public FontAwesomeIcon backward;
 
-    @FXML
+   @FXML
     public FontAwesomeIcon playtime;
 
     @FXML
@@ -159,4 +159,3 @@ public class HomePageController implements Initializable {
         });
     }
 }
-

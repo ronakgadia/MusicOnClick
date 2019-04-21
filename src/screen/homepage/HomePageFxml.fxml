@@ -91,6 +91,7 @@
                                           <Insets right="40.0" />
                                        </HBox.margin></FontAwesomeIcon>
                                     <FontAwesomeIcon fx:id="playtime" fill="#c09f1c" glyphName="PLAY" onMouseClicked="#playSong" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+
                                        <HBox.margin>
                                           <Insets right="40.0" />
                                        </HBox.margin>
