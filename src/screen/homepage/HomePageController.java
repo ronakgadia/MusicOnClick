@@ -7,7 +7,6 @@ import data.APIDataManager;
 import data.dto.Playlist;
 import data.dto.Track;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
