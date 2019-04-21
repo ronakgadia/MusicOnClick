@@ -17,7 +17,7 @@
                         <Insets bottom="5.0" left="20.0" top="5.0"/>
                     </HBox.margin>
                     <image>
-                        <Image url="@../../images/logo3.jpg"/>
+                        <Image url="@../../../images/logo3.jpg"/>
                     </image>
                 </ImageView>
                 <TilePane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL"
