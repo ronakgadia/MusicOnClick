@@ -1,20 +1,43 @@
 package screen.homepage;
 
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+import data.APIDataManager;
+import data.dto.Playlist;
+import data.dto.Track;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
+import screen.widgets.MusicTrackCellFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HomePageController implements Initializable {
+    @FXML
+    public JFXHamburger hamburger;
+
+    @FXML
+    public JFXDrawer drawer;
+
+    @FXML
+    public VBox drawer_pane;
+
     @FXML
     public Slider timeSlider;
 
@@ -33,8 +56,12 @@ public class HomePageController implements Initializable {
     @FXML
     public Slider volumeSlider;
 
-    private static int click = 0;
+    @FXML
+    private ListView<Track> listView;
 
+    private static int click = 0;
+    static int fast_click = 0;
+    static int slow_click = 0;
     private MediaPlayer mp;
 
     public HomePageController() {
@@ -51,15 +78,12 @@ public class HomePageController implements Initializable {
             mp.play();
             System.out.println("Clicked to play");
         } else {
+            FontAwesomeIcon pause = new FontAwesomeIcon();
             mp.pause();
             System.out.println("Clicked to pause");
         }
     }
 
-    static int fast_click = 0;
-    static int slow_click = 0;
-
-    //private Duration duration=mp.getCurrentTime();
     public void fast(MouseEvent event) {
         fast_click++;
         if (fast_click % 22 == 1)
@@ -78,9 +102,20 @@ public class HomePageController implements Initializable {
         }
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        APIDataManager apiDataManager = new APIDataManager();
+        ArrayList<Playlist> playlists = apiDataManager.getFeaturedPlaylist();
+        List<Track> myList = new ArrayList<Track>();
+
+        ArrayList<Track> tracks = apiDataManager.getTracksFromAPlaylist(playlists.get(0));
+        for (Track track : tracks) {
+            if (track.preview_url != null)
+                myList.add(track);
+        }
+        ObservableList<Track> myObservableList = FXCollections.observableList(myList);
+        listView.setItems(myObservableList);
+        listView.setCellFactory(new MusicTrackCellFactory());
         volumeSlider.setValue(mp.getVolume() * 100.0);
         volumeSlider.valueProperty().addListener(new InvalidationListener() {
             @Override
@@ -107,5 +142,21 @@ public class HomePageController implements Initializable {
                 }
             }
         });
+
+        drawer.setSidePane(drawer_pane);
+        HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(hamburger);
+        transition.setRate(-1);
+
+        hamburger.addEventHandler(MouseEvent.MOUSE_PRESSED, (e) -> {
+            transition.setRate(transition.getRate() * -1);
+            transition.play();
+
+            if (drawer.isOpened()) {
+                drawer.close();
+            } else {
+                drawer.open();
+            }
+        });
     }
 }
+
