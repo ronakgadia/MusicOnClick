@@ -66,7 +66,7 @@ public class APIDataManager {
         }
     }
 
-    public List<Playlist> getFeaturedPlaylist() {
+    public ArrayList<Playlist> getFeaturedPlaylist() {
         String url = "https://api.spotify.com/v1/browse/featured-playlists";
         HttpGet httpGet = new HttpGet(url);
         PreferenceManager preferenceManager = PreferenceManager.getInstance();
@@ -90,7 +90,7 @@ public class APIDataManager {
         }
     }
 
-    private List<Playlist> convertJSONPlaylistToObject(ArrayList<JSONObject> jsonObjectList) {
+    private ArrayList<Playlist> convertJSONPlaylistToObject(ArrayList<JSONObject> jsonObjectList) {
         ArrayList<Playlist> playlists = new ArrayList<>();
         for (JSONObject jsonObject : jsonObjectList) {
             Playlist playlist = new Playlist();
@@ -105,21 +105,42 @@ public class APIDataManager {
         return playlists;
     }
 
+    public ArrayList<Track> getTracksFromAPlaylist(Playlist playlist) {
+        ArrayList<Track> tracks = new ArrayList<>();
+        String url = "https://api.spotify.com/v1/playlists/" + playlist.id + "/tracks";
+        HttpGet httpGet = new HttpGet(url);
+        PreferenceManager preferenceManager = PreferenceManager.getInstance();
+        httpGet.addHeader("Authorization", "Bearer " + preferenceManager.getToken());
+        try {
+            CloseableHttpResponse response = httpclient.execute(httpGet);
+            String responseStr = getBufferedReaderResponseString(response);
+            response.close();
+            JSONParser jsonParser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(responseStr);
+            JSONArray jsonArray = (JSONArray) jsonObject.get("items");
+            ArrayList<JSONObject> jsonObjectList = new ArrayList<>();
+            for (Object o : jsonArray) {
+                jsonObjectList.add((JSONObject) o);
+            }
+            for (JSONObject object : jsonObjectList) {
+                Track track = new Track();
+                track.fromJson((JSONObject) object.get("track"));
+                tracks.add(track);
+            }
+            return tracks;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private ArrayList<Track> convertJSONTracksToObject(ArrayList<JSONObject> jsonObjectList) {
         ArrayList<Track> tracks = new ArrayList<>();
         for (JSONObject jsonObject : jsonObjectList) {
             Track track = new Track();
-            track.duration_ms = (int) jsonObject.get("duration_ms");
-            track.href = (String) jsonObject.get("href");
-            track.name = (String) jsonObject.get("name");
-            track.popularity = (int) jsonObject.get("popularity");
-            track.preview_url = (String) jsonObject.get("preview_url");
-            track.type = (String) jsonObject.get("type");
-            track.uri = (String) jsonObject.get("uri");
+            track.fromJson(jsonObject);
             tracks.add(track);
         }
         return tracks;
     }
 }
-
-
