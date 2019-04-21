@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXSlider?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,8 +16,8 @@
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.homepage.HomePageController">
    <children>
       <SplitPane dividerPositions="0.5" layoutX="1.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="1000.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="290.0" prefWidth="1000.0" stylesheets="@HomePage.css">
+         <items>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1000.0" stylesheets="@HomePage.css">
                <children>
                   <!--<JFXDrawer fx:id="drawer" defaultDrawerSize="1000.0" layoutY="90.0" prefHeight="413.0" prefWidth="186.0">
                      <children>
@@ -43,32 +43,34 @@
                         </VBox>
                      </children></JFXDrawer>-->
                   <JFXHamburger fx:id="hamburger" prefHeight="89.0" prefWidth="186.0" style="-fx-border-color: #FFFFFF; -fx-background-color: #012B72;" />
-                  <SplitPane dividerPositions="0.23244147157190637" layoutX="186.0" layoutY="-10.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="807.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                  <SplitPane dividerPositions="0.25" layoutX="186.0" layoutY="2.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="807.0">
+                     <items>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="800.0">
                            <children>
-                              <JFXButton fx:id="main_btn1" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="BOTTOM" layoutY="8.0" mnemonicParsing="false" prefHeight="136.0" prefWidth="266.0" ripplerFill="#2de4d8" style="-fx-background-image: ../../back.jpg;" stylesheets="@HomePage.css" text="Featured Playlist" textAlignment="JUSTIFY" textFill="#fffdfd">
+                              <JFXButton fx:id="main_btn1" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="BOTTOM" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="266.0" ripplerFill="#2de4d8" style="-fx-background-image: ../../back.jpg;" stylesheets="@HomePage.css" text="Featured Playlist" textAlignment="JUSTIFY" textFill="#fffdfd">
                                  <font>
                                     <Font name="Georgia" size="19.0" />
                                  </font></JFXButton>
-
-                              <JFXButton fx:id="main_btn2" buttonType="RAISED" layoutX="263.0" layoutY="4.0" mnemonicParsing="false" prefHeight="136.0" prefWidth="273.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="New Releases" textAlignment="JUSTIFY" textFill="#fffdfd">
+                              <JFXButton fx:id="main_btn2" buttonType="RAISED" layoutX="261.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="273.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="New Releases" textAlignment="JUSTIFY" textFill="#fffdfd">
                                  <font>
                                     <Font name="Georgia" size="19.0" />
                                  </font></JFXButton>
-                              <JFXButton fx:id="main_btn3" buttonType="RAISED" layoutX="536.0" layoutY="4.0" mnemonicParsing="false" prefHeight="136.0" prefWidth="266.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="Cateogaries" textAlignment="JUSTIFY" textFill="#fffdfd">
+                              <JFXButton fx:id="main_btn3" buttonType="RAISED" layoutX="536.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="266.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="Cateogaries" textAlignment="JUSTIFY" textFill="#fffdfd">
                                  <font>
                                     <Font name="Georgia" size="19.0" />
                                  </font></JFXButton>
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="805.0" />
-                    </items>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="800.0">
+                           <children>
+                              <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="800.0" />
+                           </children></AnchorPane>
+                     </items>
                   </SplitPane>
                </children></AnchorPane>
-          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="89.0" prefWidth="1000.0" style="-fx-background-color: #03A9db;">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="89.0" prefWidth="1000.0" style="-fx-background-color: #03A9db;">
                <children>
-                  <VBox alignment="CENTER" layoutY="-5.0" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: blue;">
+                  <VBox alignment="CENTER" layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: blue;">
                      <children>
                         <JFXSlider fx:id="timeSlider" prefHeight="14.0" prefWidth="242.0" style="-fx-background-color: blue;">
                            <padding>
@@ -127,7 +129,7 @@
                   </VBox>
                </children>
             </AnchorPane>
-        </items>
+         </items>
       </SplitPane>
    </children>
 </AnchorPane>

@@ -1,7 +1,6 @@
 package screen.splash;
 
 import data.PreferenceManager;
-import screen.home.Home;
 import utils.Router;
 
 import java.io.IOException;
@@ -14,11 +13,15 @@ public class SplashScreen {
             e.printStackTrace();
         }
         PreferenceManager preferenceManager = PreferenceManager.getInstance();
-//        preferenceManager.logoutUser();
-        if (preferenceManager.isUserLoggedIn()) {
+        preferenceManager.logoutUser();
+        if
+        (preferenceManager.isUserLoggedIn()) {
             System.out.println("User is logged in:"+preferenceManager.getToken());
-            Home home = new Home();
-//               Router.goTo("home");
+            try {
+                Router.goTo("homepage");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("User is not logged in");
             try {

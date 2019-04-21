@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import screen.home.Home;
 import utils.Router;
 
 import java.io.IOException;
@@ -27,7 +26,12 @@ public class LoginController {
         APIDataManager apiDataManager = new APIDataManager();
         preferenceManager.loginUser();
         preferenceManager.setToken(apiDataManager.requestToken());
-        Home home = new Home();
+//        Home home = new Home();
+        try {
+            Router.goTo("homepage");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void goToSignup() {
