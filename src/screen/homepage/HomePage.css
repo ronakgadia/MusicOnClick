@@ -2,3 +2,19 @@
     -fx-background-image:url('../../images/blueloginbackground.jpg');
     fx-background-size: contain;
 }
+
+#main_btn1
+{
+    -fx-background-image:url('../../images/guitar.jpg');
+    fx-background-size: contain;
+}
+#main_btn2
+{
+    -fx-background-image:url('../../images/mike.jpg');
+    fx-background-size: contain;
+}
+#main_btn3
+{
+    -fx-background-image:url('../../images/btn.jpg');
+    fx-background-size: contain;
+}

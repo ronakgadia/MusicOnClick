@@ -135,8 +135,6 @@ public class HomePageController implements Initializable {
                 drawer.open();
             }
         });
-
-
     }
 
     /*public void expandicon(){
