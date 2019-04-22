@@ -1,5 +1,6 @@
 package data;
 
+import data.dto.Album;
 import data.dto.Playlist;
 import data.dto.Track;
 import org.apache.http.NameValuePair;
@@ -90,25 +91,63 @@ public class APIDataManager {
         }
     }
 
+    public ArrayList<Album> getNewReleases() {
+        String url = "https://api.spotify.com/v1/browse/new-releases";
+        HttpGet httpGet = new HttpGet(url);
+        PreferenceManager preferenceManager = PreferenceManager.getInstance();
+        httpGet.addHeader("Authorization", "Bearer " + preferenceManager.getToken());
+        try {
+            CloseableHttpResponse response = httpclient.execute(httpGet);
+            String responseStr = getBufferedReaderResponseString(response);
+            response.close();
+            JSONParser jsonParser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(responseStr);
+            jsonObject = (JSONObject) jsonObject.get("albums");
+            JSONArray jsonArray = (JSONArray) jsonObject.get("items");
+            ArrayList<JSONObject> jsonObjectList = new ArrayList<>();
+            for (Object o : jsonArray) {
+                jsonObjectList.add((JSONObject) o);
+            }
+            return convertJsonArrayToAlbumList(jsonObjectList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private ArrayList<Album> convertJsonArrayToAlbumList(ArrayList<JSONObject> jsonObjectList) {
+        ArrayList<Album> albums = new ArrayList<>();
+        for (JSONObject jsonObject : jsonObjectList) {
+            Album album = new Album();
+            album.fromJson(jsonObject);
+            albums.add(album);
+        }
+        return albums;
+    }
+
     private ArrayList<Playlist> convertJSONPlaylistToObject(ArrayList<JSONObject> jsonObjectList) {
         ArrayList<Playlist> playlists = new ArrayList<>();
         for (JSONObject jsonObject : jsonObjectList) {
             Playlist playlist = new Playlist();
-            playlist.href = (String) jsonObject.get("href");
-            playlist.id = (String) jsonObject.get("id");
-            playlist.name = (String) jsonObject.get("name");
-            playlist.tracksUrl = (String) ((JSONObject) jsonObject.get("tracks")).get("href");
-            playlist.type = (String) jsonObject.get("type");
-            playlist.uri = (String) jsonObject.get("uri");
+            playlist.fromJson(jsonObject);
             playlists.add(playlist);
         }
         return playlists;
     }
 
-    public ArrayList<Track> getTracksFromAPlaylist(Playlist playlist) {
+    public ArrayList<Track> getTracksFromAPlaylist(String playlistId) {
+        String url = "https://api.spotify.com/v1/playlists/" + playlistId + "/tracks";
+        return getTracksFromApi(url);
+    }
+
+    public ArrayList<Track> getTrackFromAnAlbum(String albumId) {
+        String url = "https://api.spotify.com/v1/albums/" + albumId + "/tracks";
+        return getTracksFromApi(url);
+    }
+
+    private ArrayList<Track> getTracksFromApi(String apiUrl) {
         ArrayList<Track> tracks = new ArrayList<>();
-        String url = "https://api.spotify.com/v1/playlists/" + playlist.id + "/tracks";
-        HttpGet httpGet = new HttpGet(url);
+        HttpGet httpGet = new HttpGet(apiUrl);
         PreferenceManager preferenceManager = PreferenceManager.getInstance();
         httpGet.addHeader("Authorization", "Bearer " + preferenceManager.getToken());
         try {
@@ -124,8 +163,10 @@ public class APIDataManager {
             }
             for (JSONObject object : jsonObjectList) {
                 Track track = new Track();
-                track.fromJson((JSONObject) object.get("track"));
-                tracks.add(track);
+                track.fromJson(object);
+                if (track.preview_url != null) {
+                    tracks.add(track);
+                }
             }
             return tracks;
         } catch (Exception e) {

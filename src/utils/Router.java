@@ -1,14 +1,19 @@
 package utils;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import javafx.animation.FadeTransition;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
+import java.net.URL;
 import java.util.AbstractMap;
 import java.util.HashMap;
-import javafx.fxml.FXMLLoader;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.Parent;
-import javafx.util.Duration;
-import javafx.animation.FadeTransition;
 
 
 public final class Router {
@@ -16,8 +21,8 @@ public final class Router {
     private static final Double WINDOW_WIDTH = 1000.0;
     private static final Double WINDOW_HEIGHT = 600.0;
     private static final Double FADE_ANIMATION_DURATION = 800.0;
-    private static final boolean IS_WINDOW_RESIZABLE = false;
-
+    private static final boolean IS_WINDOW_RESIZABLE = true;
+    public static MediaPlayer mediaPlayer = new MediaPlayer(new Media("file:/C:/Users/User/Documents/GitHub/MusicOnClick/src/images/ashqui.mp3"));
     // FXRouter Singleton
     private static Router router;
     // FXRouter Main Class reference to get main package
@@ -86,7 +91,8 @@ public final class Router {
     /**
      * FXRouter constructor kept private to apply Singleton pattern
      */
-    private Router() {}
+    private Router() {
+    }
 
     public static void bind(Object ref, Stage win) {
         checkInstances(ref, win);
@@ -111,11 +117,11 @@ public final class Router {
     }
 
     private static void checkInstances(Object ref, Stage win) {
-        if(mainRef == null)
+        if (mainRef == null)
             mainRef = ref;
-        if(router == null)
+        if (router == null)
             router = new Router();
-        if(window == null)
+        if (window == null)
             window = win;
     }
 
@@ -164,7 +170,8 @@ public final class Router {
         String scenePath = "/" + route.scenePath;
 
         // load .fxml resource
-        Parent resource = FXMLLoader.load(new Object() { }.getClass().getResource(scenePath));
+        Parent resource = FXMLLoader.load(new Object() {
+        }.getClass().getResource(scenePath));
 
         // set window title from route settings or default setting
         window.setTitle(route.windowTitle);
@@ -198,7 +205,7 @@ public final class Router {
 
     private static void routeAnimation(Parent node) {
         String anType = animationType != null ? animationType.toLowerCase() : "";
-        switch(anType) {
+        switch (anType) {
             case "fade":
                 Double fd = animationDuration != null ? animationDuration : FADE_ANIMATION_DURATION;
                 FadeTransition ftCurrent = new FadeTransition(Duration.millis(fd), node);
@@ -211,10 +218,14 @@ public final class Router {
         }
     }
 
-    /** Get current route data
+    /**
+     * Get current route data
      */
     public static Object getData() {
         return currentRoute.data;
     }
 
+    public static void setMediaPlayer(MediaPlayer mp) {
+        mediaPlayer = mp;
+    }
 }

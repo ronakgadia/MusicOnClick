@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: json-simple-1.1.1.jar junit-4.10.jar hamcrest-core-1.1.jar
+  fontawesomefx-8.2.jar mysql-connector-java-5.1.40.jar jfoenix-8.0.8.
+ jar httpclient-4.5.8.jar httpcore-4.4.11.jar commons-logging-1.2.jar 
+ commons-codec-1.11.jar jfoenix-8.0.8.jar jackson-databind-2.9.6.jar j
+ ackson-annotations-2.9.0.jar jackson-core-2.9.6.jar
+Main-Class: 
+

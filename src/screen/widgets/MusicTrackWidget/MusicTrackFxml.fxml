@@ -6,7 +6,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" prefHeight="90" prefWidth="370">
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         prefHeight="90" prefWidth="600">
     <graphic>
         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
               minWidth="-Infinity" prefHeight="90.0" prefWidth="600.0">
@@ -17,7 +19,7 @@
                         <Insets bottom="5.0" left="20.0" top="5.0"/>
                     </HBox.margin>
                     <image>
-                        <Image url="@../../images/logo3.jpg"/>
+                        <Image url="@../../../images/logo3.jpg"/>
                     </image>
                 </ImageView>
                 <TilePane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL"
@@ -38,12 +40,15 @@
                         </Label>
                     </children>
                 </TilePane>
-                <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
+                <Button fx:id="playButton" mnemonicParsing="false" style="-fx-background-color: transparent;">
                     <graphic>
                     </graphic>
                     <HBox.margin>
                         <Insets right="10.0"/>
                     </HBox.margin>
+                    <graphic>
+                        <FontAwesomeIcon glyphName="PLAY" size="2em" strokeType="OUTSIDE" strokeWidth="0.0"/>
+                    </graphic>
                 </Button>
             </children>
         </HBox>

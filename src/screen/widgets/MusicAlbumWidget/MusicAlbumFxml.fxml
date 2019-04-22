@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<fx:root type="javafx.scene.control.ListCell" prefHeight="70.0" prefWidth="800.0"
+         xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <graphic>
+        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+              minWidth="-Infinity" prefHeight="70.0" prefWidth="800.0">
+            <children>
+                <ImageView fx:id="albumImageText" fitHeight="60.0" fitWidth="100.0" pickOnBounds="true">
+                    <HBox.margin>
+                        <Insets bottom="5.0" left="20.0" top="5.0"/>
+                    </HBox.margin>
+                    <image>
+                        <Image url="@../../../images/logo3.jpg"/>
+                    </image>
+                </ImageView>
+                <TilePane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL"
+                          prefHeight="80.0" prefWidth="270.0" tileAlignment="CENTER_LEFT">
+                    <HBox.margin>
+                        <Insets left="30.0"/>
+                    </HBox.margin>
+                    <children>
+                        <Label fx:id="albumNameText">
+                            <font>
+                                <Font name="System Bold" size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="albumTypeText">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </TilePane>
+                <TilePane alignment="CENTER_LEFT" hgap="40.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                          minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="70.0"
+                          prefWidth="310.0" tileAlignment="CENTER_LEFT">
+                    <children>
+                        <Label fx:id="albumArtistText">
+                            <font>
+                                <Font name="System Bold" size="15.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="albumReleaseText">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </TilePane>
+                <Button fx:id="nextPage" mnemonicParsing="false"
+                        style="-fx-background-color: transparent;">
+                    <graphic>
+                    </graphic>
+                    <HBox.margin>
+                        <Insets right="10.0"/>
+                    </HBox.margin>
+                    <graphic>
+                        <FontAwesomeIcon glyphName="ARROW_RIGHT" size="2em" strokeType="OUTSIDE" strokeWidth="0.0"/>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+    </graphic>
+</fx:root>

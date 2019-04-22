@@ -31,12 +31,8 @@
                   <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="250.0" />
                </children>
             </HBox>
-            <ListView maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" />
+            <ListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="1000.0" />
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0">
-
-
-
-
                 <children>
                     <VBox alignment="CENTER" layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: blue;">
                         <children>
@@ -53,16 +49,16 @@
                                     <HBox prefHeight="100.0" prefWidth="300.0" />
                                     <HBox alignment="CENTER" prefHeight="48.0" prefWidth="400.0">
                                         <children>
-                                            <FontAwesomeIcon fx:id="backward" glyphName="BACKWARD" onMouseClicked="#slow" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                            <FontAwesomeIcon fx:id="backward1" glyphName="BACKWARD" onMouseClicked="#slow1" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                                 <HBox.margin>
                                                     <Insets right="40.0" />
                                                 </HBox.margin></FontAwesomeIcon>
-                                            <FontAwesomeIcon fx:id="playtime" glyphName="PLAY" onMouseClicked="#playSong" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                            <FontAwesomeIcon fx:id="playtime1" glyphName="PLAY" onMouseClicked="#playSong1" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                                 <HBox.margin>
                                                     <Insets right="40.0" />
                                                 </HBox.margin>
                                             </FontAwesomeIcon>
-                                            <FontAwesomeIcon fx:id="forward" glyphName="FORWARD" onMouseClicked="#fast" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+                                            <FontAwesomeIcon fx:id="forward1" glyphName="FORWARD" onMouseClicked="#fast1" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
                                                 <HBox.margin>
                                                     <Insets />
                                                 </HBox.margin>
