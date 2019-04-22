@@ -6,10 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-         prefHeight="90" prefWidth="600">
-    <graphic>
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" prefHeight="90" prefWidth="370">
+    <children>
         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
               minWidth="-Infinity" prefHeight="90.0" prefWidth="600.0">
             <children>
@@ -40,17 +38,14 @@
                         </Label>
                     </children>
                 </TilePane>
-                <Button fx:id="playButton" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent;">
                     <graphic>
                     </graphic>
                     <HBox.margin>
                         <Insets right="10.0"/>
                     </HBox.margin>
-                    <graphic>
-                        <FontAwesomeIcon glyphName="PLAY" size="2em" strokeType="OUTSIDE" strokeWidth="0.0"/>
-                    </graphic>
                 </Button>
             </children>
         </HBox>
-    </graphic>
-</fx:root>
+    </children>
+</AnchorPane>
