@@ -1,5 +1,8 @@
 package data;
 
+import utils.Router;
+
+import java.io.IOException;
 import java.util.prefs.Preferences;
 
 public class PreferenceManager {
@@ -24,6 +27,11 @@ public class PreferenceManager {
 
     public void logoutUser() {
         preferences.putBoolean("isLoggedIn", false);
+        try {
+            Router.goTo("login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean isUserLoggedIn() {

@@ -13,7 +13,7 @@
 
 <AnchorPane accessibleRole="IMAGE_VIEW" pickOnBounds="false" prefHeight="400.0" prefWidth="600.0" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screen.login.LoginController">
    <children>
-      <HBox alignment="CENTER" layoutX="87.0" layoutY="24.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.topAnchor="24.0">
+      <HBox alignment="CENTER" layoutX="44.0" layoutY="24.0" prefHeight="600.0" prefWidth="1000.0" AnchorPane.topAnchor="24.0">
          <children>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.73" prefHeight="325.0" prefWidth="275.0" style="-fx-background-color: white;">
                <children>
@@ -56,9 +56,13 @@
                   </Label>
                   <Hyperlink onMouseClicked="#goToSignup" text="SignUp" />
                </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" right="100.0" />
+               </HBox.margin>
             </VBox>
          </children>
       </HBox>
+      <Label fx:id="invalid" alignment="TOP_CENTER" contentDisplay="CENTER" textFill="#f51414" />
    </children>
    <opaqueInsets>
       <Insets />

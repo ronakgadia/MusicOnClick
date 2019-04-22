@@ -38,4 +38,28 @@ public class DatabaseManager {
             return false;
         }
     }
+    public boolean isUserValid(String Username,String Password) {
+
+
+        String sql="SELECT  * FROM register WHERE username=? and password=?";
+        //String query = ;  //get username   //
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1,Username);
+            stmt.setString(2,Password);
+            ResultSet rs = stmt.executeQuery();
+
+
+            if(!rs.next()) {
+               return false;
+            }else {
+                return true ;
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            return true ;
+        }
+    }
+
 }

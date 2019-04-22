@@ -1,9 +1,11 @@
 package screen.homepage;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import data.APIDataManager;
+import data.PreferenceManager;
 import data.dto.Playlist;
 import data.dto.Track;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -14,6 +16,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
@@ -55,6 +58,12 @@ public class HomePageController implements Initializable {
 
     @FXML
     public Slider volumeSlider;
+    @FXML
+    public JFXButton main_btn3;
+    @FXML
+    public Label stoptime;
+    @FXML
+    public Label starttime;
 
     @FXML
     private ListView<Track> listView;
@@ -67,6 +76,7 @@ public class HomePageController implements Initializable {
     public HomePageController() {
         URL mediaUrl = getClass().getResource("../../images/ashqui.mp3");
         String mediaStringUrl = mediaUrl.toExternalForm();
+        System.out.println(mediaStringUrl);
         Media media = new Media(mediaStringUrl);
         MediaPlayer mp2 = new MediaPlayer(media);
         this.mp = mp2;
@@ -75,10 +85,11 @@ public class HomePageController implements Initializable {
     public void playSong(MouseEvent event) {
         click++;
         if (click % 2 == 1) {
+            playtime.setGlyphName("PAUSE");
             mp.play();
             System.out.println("Clicked to play");
         } else {
-            FontAwesomeIcon pause = new FontAwesomeIcon();
+            playtime.setGlyphName("PLAY");
             mp.pause();
             System.out.println("Clicked to pause");
         }
@@ -100,6 +111,10 @@ public class HomePageController implements Initializable {
         } else {
             mp.setRate(1);
         }
+    }
+    public void logout(){
+        PreferenceManager preferenceManager=PreferenceManager.getInstance();
+        preferenceManager.logoutUser();
     }
 
     @Override

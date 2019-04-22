@@ -17,7 +17,7 @@
          <children>
             <HBox prefHeight="150.0" prefWidth="1000.0">
                <children>
-                  <HBox prefHeight="150.0" prefWidth="250.0">
+                  <HBox fx:id="h_box" prefHeight="150.0" prefWidth="250.0">
                      <children>
                          <FontAwesomeIcon glyphName="ARROW_LEFT" size="4em" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER">
                            <HBox.margin>

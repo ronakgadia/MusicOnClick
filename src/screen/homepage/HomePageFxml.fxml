@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
 <?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXSlider?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -19,7 +21,7 @@
          <items>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="1000.0" stylesheets="@HomePage.css">
                <children>
-                  <!--<JFXDrawer fx:id="drawer" defaultDrawerSize="1000.0" layoutY="90.0" prefHeight="413.0" prefWidth="186.0">
+                  <JFXDrawer fx:id="drawer" defaultDrawerSize="1000.0" layoutY="90.0" prefHeight="413.0" prefWidth="186.0">
                      <children>
                         <VBox fx:id="drawer_pane" prefHeight="440.0" prefWidth="186.0" style="-fx-background-color: #012B72;">
                            <children>
@@ -35,29 +37,29 @@
                                  <font>
                                     <Font name="Ebrima" size="18.0" />
                                  </font></JFXButton>
-                              <JFXButton buttonType="RAISED" mnemonicParsing="false" prefHeight="111.0" prefWidth="195.0" style="-fx-border-color: #FFFFFF;" text="LogOut" textFill="#f8f8f8">
+                              <JFXButton buttonType="RAISED" mnemonicParsing="false" onMouseClicked="#logout" prefHeight="111.0" prefWidth="195.0" style="-fx-border-color: #FFFFFF;" text="LogOut" textFill="#f8f8f8">
                                  <font>
                                     <Font name="Ebrima" size="18.0" />
                                  </font></JFXButton>
                            </children>
                         </VBox>
-                     </children></JFXDrawer>-->
+                     </children></JFXDrawer>
                   <JFXHamburger fx:id="hamburger" prefHeight="89.0" prefWidth="186.0" style="-fx-border-color: #FFFFFF; -fx-background-color: #012B72;" />
                   <SplitPane dividerPositions="0.25" layoutX="184.0" layoutY="2.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="809.0">
                      <items>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="800.0">
                            <children>
-                              <JFXButton fx:id="main_btn1" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="BOTTOM" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="266.0" ripplerFill="#2de4d8" style="-fx-background-image: ../../back.jpg;" stylesheets="@HomePage.css" text="Featured Playlist" textAlignment="JUSTIFY" textFill="#fffdfd">
+                              <JFXButton fx:id="main_btn1" alignment="BASELINE_CENTER" buttonType="RAISED" contentDisplay="BOTTOM" layoutY="-1.0" maxHeight="50" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="266.0" ripplerFill="#2de4d8" style="-fx-background-image: ../../back.jpg;" stylesheets="@HomePage.css" text="Featured Playlist" textAlignment="JUSTIFY" textFill="#fffdfd">
                                  <font>
-                                    <Font name="Georgia" size="19.0" />
+                                    <Font name="Georgia Bold" size="22.0" />
                                  </font></JFXButton>
-                              <JFXButton fx:id="main_btn2" buttonType="RAISED" layoutX="261.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="273.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="New Releases" textAlignment="JUSTIFY" textFill="#fffdfd">
+                              <JFXButton fx:id="main_btn2" buttonType="RAISED" layoutX="261.0" layoutY="-1.0" maxHeight="50" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="273.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="New Releases" textAlignment="JUSTIFY" textFill="#fffdfd">
                                  <font>
-                                    <Font name="Georgia" size="19.0" />
+                                    <Font name="Georgia Bold" size="22.0" />
                                  </font></JFXButton>
-                              <JFXButton fx:id="main_btn3" buttonType="RAISED" layoutX="536.0" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="266.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="Cateogaries" textAlignment="JUSTIFY" textFill="#fffdfd">
+                              <JFXButton fx:id="main_btn3" buttonType="RAISED" layoutX="536.0" layoutY="-1.0" maxHeight="50" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="125.0" prefWidth="266.0" ripplerFill="#2de4d8" stylesheets="@HomePage.css" text="Cateogaries" textAlignment="JUSTIFY" textFill="#fffdfd">
                                  <font>
-                                    <Font name="Georgia" size="19.0" />
+                                    <Font name="Georgia Bold" size="22.0" />
                                  </font></JFXButton>
                            </children>
                         </AnchorPane>
@@ -82,7 +84,10 @@
                         </JFXSlider>
                         <HBox alignment="CENTER">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="300.0" />
+                              <HBox prefHeight="100.0" prefWidth="300.0">
+                                 <children>
+                                    <Label fx:id="starttime" text="Label" />
+                                 </children></HBox>
                               <HBox alignment="CENTER" prefHeight="48.0" prefWidth="400.0">
                                  <children>
                                     <FontAwesomeIcon fx:id="backward" glyphName="BACKWARD" onMouseClicked="#slow" size="3em" strokeType="OUTSIDE" strokeWidth="0.0" text="">
@@ -118,6 +123,7 @@
                                        </HBox.margin>
                                     </FontAwesomeIcon>
                                     <JFXSlider fx:id="volumeSlider" />
+                                    <Label fx:id="stoptime" text="Label" />
                                  </children>
                               </HBox>
                            </children>
