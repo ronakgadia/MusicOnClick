@@ -19,10 +19,10 @@ public class Track {
     public String trackAlbumName;
 
     public void fromJson(JSONObject jsonObject) {
-        Album album = new Album();
-        album.fromJson((JSONObject) jsonObject.get("album"));
-        this.trackAlbumImage = album.image;
-        this.trackAlbumName = album.name;
+//        Album album = new Album();
+//        album.fromJson((JSONObject) jsonObject.get("album"));
+//        this.trackAlbumImage = album.image;
+//        this.trackAlbumName = album.name;
         this.artists = getTrackArtist((JSONArray) jsonObject.get("artists"));
         this.duration_ms = (long) jsonObject.get("duration_ms");
         this.href = (String) jsonObject.get("href");

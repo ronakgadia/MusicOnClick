@@ -108,14 +108,14 @@ public class APIDataManager {
             for (Object o : jsonArray) {
                 jsonObjectList.add((JSONObject) o);
             }
-            return conertJsonArrayToAlbumList(jsonObjectList);
+            return convertJsonArrayToAlbumList(jsonObjectList);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private ArrayList<Album> conertJsonArrayToAlbumList(ArrayList<JSONObject> jsonObjectList) {
+    private ArrayList<Album> convertJsonArrayToAlbumList(ArrayList<JSONObject> jsonObjectList) {
         ArrayList<Album> albums = new ArrayList<>();
         for (JSONObject jsonObject : jsonObjectList) {
             Album album = new Album();
@@ -163,8 +163,10 @@ public class APIDataManager {
             }
             for (JSONObject object : jsonObjectList) {
                 Track track = new Track();
-                track.fromJson((JSONObject) object.get("track"));
-                tracks.add(track);
+                track.fromJson(object);
+                if (track.preview_url != null) {
+                    tracks.add(track);
+                }
             }
             return tracks;
         } catch (Exception e) {

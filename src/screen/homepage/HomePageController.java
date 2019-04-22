@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 import data.APIDataManager;
-import data.dto.Playlist;
+import data.dto.Album;
 import data.dto.Track;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.beans.InvalidationListener;
@@ -20,7 +20,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
-import screen.widgets.MusicTrackWidget.MusicTrackCellFactory;
+import screen.widgets.MusicAlbumWidget.MusicAlbumCellFactory;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -56,19 +56,21 @@ public class HomePageController implements Initializable {
     public Slider volumeSlider;
 
     @FXML
-    private ListView<Track> listView;
+    private ListView listView;
 
     private static int click = 0;
-    static int fast_click = 0;
-    static int slow_click = 0;
+    private static int fast_click = 0;
+    private static int slow_click = 0;
     private MediaPlayer mp;
+    private List myList = new ArrayList<>();
+    private ObservableList myObservableList = FXCollections.observableList(myList);
+    private APIDataManager apiDataManager = new APIDataManager();
 
     public HomePageController() {
         URL mediaUrl = getClass().getResource("../../images/ashqui.mp3");
         String mediaStringUrl = mediaUrl.toExternalForm();
         Media media = new Media(mediaStringUrl);
-        MediaPlayer mp2 = new MediaPlayer(media);
-        this.mp = mp2;
+        this.mp = new MediaPlayer(media);
     }
 
     public void playSong(MouseEvent event) {
@@ -101,20 +103,18 @@ public class HomePageController implements Initializable {
         }
     }
 
+    private void displayNewReleases() {
+        listView.getItems().clear();
+        myList.clear();
+        ArrayList<Album> albums = apiDataManager.getNewReleases();
+        myList.addAll(albums);
+        listView.setItems(myObservableList);
+        listView.setCellFactory(new MusicAlbumCellFactory());
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        APIDataManager apiDataManager = new APIDataManager();
-        ArrayList<Playlist> playlists = apiDataManager.getFeaturedPlaylist();
-        List<Track> myList = new ArrayList<Track>();
-
-        ArrayList<Track> tracks = apiDataManager.getTracksFromAPlaylist(playlists.get(0).id);
-        for (Track track : tracks) {
-            if (track.preview_url != null)
-                myList.add(track);
-        }
-        ObservableList<Track> myObservableList = FXCollections.observableList(myList);
-        listView.setItems(myObservableList);
-        listView.setCellFactory(new MusicTrackCellFactory());
+        displayNewReleases();
         volumeSlider.setValue(mp.getVolume() * 100.0);
         volumeSlider.valueProperty().addListener(new InvalidationListener() {
             @Override
