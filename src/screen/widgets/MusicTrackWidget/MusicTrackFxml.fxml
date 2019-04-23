@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-         prefHeight="90" prefWidth="600">
+<fx:root type="javafx.scene.control.ListCell" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+         minWidth="-Infinity" prefHeight="70.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+         xmlns:fx="http://javafx.com/fxml/1">
     <graphic>
         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-              minWidth="-Infinity" prefHeight="90.0" prefWidth="600.0">
+              minWidth="-Infinity" prefHeight="70.0" prefWidth="800.0">
             <children>
-                <ImageView fx:id="trackImage" fitHeight="80.0" fitWidth="100.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fx:id="trackImage" fitHeight="60.0" fitWidth="100.0" pickOnBounds="true">
                     <HBox.margin>
                         <Insets bottom="5.0" left="20.0" top="5.0"/>
                     </HBox.margin>
@@ -23,19 +23,34 @@
                     </image>
                 </ImageView>
                 <TilePane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL"
-                          prefHeight="80.0" prefWidth="370.0" tileAlignment="CENTER_LEFT">
+                          prefHeight="70.0" prefWidth="300.0" tileAlignment="CENTER_LEFT">
                     <HBox.margin>
                         <Insets left="30.0"/>
                     </HBox.margin>
                     <children>
-                        <Label fx:id="trackTitle" text="Girls Like You Go Around">
+                        <Label fx:id="trackTitle" text="svcvsvsvsv">
                             <font>
                                 <Font name="System Bold" size="18.0"/>
                             </font>
                         </Label>
-                        <Label fx:id="trackSubtitle" text="Marine Animals">
+                        <Label fx:id="trackArtistName" text="svsvsv">
                             <font>
                                 <Font size="15.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </TilePane>
+                <TilePane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                          minWidth="-Infinity" orientation="VERTICAL" prefHeight="70.0" prefWidth="280.0">
+                    <children>
+                        <Label fx:id="trackAlbumName" text="dvvd">
+                            <font>
+                                <Font name="System Bold" size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="trackDuration" text="Label">
+                            <font>
+                                <Font size="14.0"/>
                             </font>
                         </Label>
                     </children>
@@ -47,7 +62,8 @@
                         <Insets right="10.0"/>
                     </HBox.margin>
                     <graphic>
-                        <FontAwesomeIcon glyphName="PLAY" size="2em" strokeType="OUTSIDE" strokeWidth="0.0"/>
+                        <!--<FontAwesomeIcon fx:id="trackPlayButton" glyphName="PLAY" size="2em" strokeType="OUTSIDE"
+                                         strokeWidth="0.0"/>-->
                     </graphic>
                 </Button>
             </children>

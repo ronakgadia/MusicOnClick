@@ -25,12 +25,18 @@ public class MusicTrackCell extends ListCell<Track> {
     private Label trackTitle;
 
     @FXML
-    private Label trackSubtitle;
+    private Label trackArtistName;
 
     @FXML
-    private Button playButton;
+    private Label trackAlbumName;
 
-    private String TrackUrl;
+    @FXML
+    private Button trackPlayButton;
+
+    @FXML
+    private Label trackDuration;
+
+    private String trackUrl;
 
     public MusicTrackCell() {
         loadFXML();
@@ -50,27 +56,35 @@ public class MusicTrackCell extends ListCell<Track> {
     @Override
     protected void updateItem(Track item, boolean empty) {
         super.updateItem(item, empty);
-        if (empty || trackTitle == null || trackSubtitle == null || trackImage == null) {
+        if (empty || trackTitle == null) {
             setText(null);
             setContentDisplay(ContentDisplay.TEXT_ONLY);
         } else {
             trackTitle.setText(item.name);
-//            trackSubtitle.setText(item.trackAlbumName);
-            if (item.trackAlbumImage != null)
-                trackImage.setImage(new Image(item.trackAlbumImage));
-            if (item.preview_url != null) {
-                TrackUrl = item.preview_url;
+
+            String text = "";
+            for (int i = 0; i < item.artists.size() - 1; i++) {
+                text = text + item.artists.get(i) + ",";
             }
+            text = text + item.artists.get(item.artists.size() - 1);
+            trackArtistName.setText(text);
+
+            int time = (int) item.duration_ms / 1000;
+            int timeInMin = time / 60;
+            int timeInSec = time % 60;
+            trackDuration.setText(timeInMin + ":" + timeInSec);
+
+            trackUrl = item.preview_url;
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
         }
 
-        playButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+        /*trackPlayButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (TrackUrl != null) {
-                    Router.mediaPlayer = new MediaPlayer(new Media(TrackUrl));
+                if (trackUrl != null) {
+                    Router.mediaPlayer = new MediaPlayer(new Media(trackUrl));
                 }
             }
-        });
+        });*/
     }
 }

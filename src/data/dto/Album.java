@@ -28,7 +28,7 @@ public class Album {
 
     private String getAlbumImage(JSONArray jsonArray) {
         if (!jsonArray.isEmpty()) {
-            return (String) ((JSONObject) jsonArray.get(jsonArray.size() - 1)).get("url");
+            return (String) ((JSONObject) jsonArray.get(0)).get("url");
         }
         return null;
     }

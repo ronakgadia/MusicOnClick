@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -49,6 +51,9 @@ public class TrackListController implements Initializable {
 
     @FXML
     private ListView<Track> listView;
+
+    @FXML
+    private ImageView albumImage;
 
     private static int click = 0;
     private static int fast_click = 0;
@@ -100,6 +105,9 @@ public class TrackListController implements Initializable {
                     myList.addAll(tracks);
                     listView.setItems(myObservableList);
                     listView.setCellFactory(new MusicTrackCellFactory());
+                }
+                if (album.image != null) {
+                    albumImage.setImage(new Image(album.image));
                 }
             }
         } else if (type.equals("Playlist")) {

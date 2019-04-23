@@ -13,7 +13,6 @@ public class SplashScreen {
             e.printStackTrace();
         }
         PreferenceManager preferenceManager = PreferenceManager.getInstance();
-//        preferenceManager.logoutUser();
         if
         (preferenceManager.isUserLoggedIn()) {
             System.out.println("User is logged in:"+preferenceManager.getToken());
